@@ -86,10 +86,10 @@ class sequence:
 
     def gradient_descend(self):
         for i in range(self.linear.__len__()):
-            self.linear[i].weight -= self.learning_rate * self.linear[i].dW
-            self.linear[i].bias -= self.learning_rate * self.linear[i].dB
+            self.linear[i].weight = self.linear[i].weight - self.learning_rate * self.linear[i].dW
+            self.linear[i].bias = self.linear[i].bias - self.learning_rate * self.linear[i].dB
 
-    def __cal_dW(self, label, lab_i, i, j, k) ->np.ndarray:
+    def __cal_dW(self, label, lab_i, i, j, k):
         updated = 0
         input_features = 0
         sum_of_dW = 0
@@ -108,7 +108,7 @@ class sequence:
         updated = self.__dCost(self.features[lab_i], label[lab_i]) * self.__dSigmoid(self.relu[i].A[j]) * input_features * sum_of_dW
         return updated
     
-    def __cal_dB(self, label, lab_i, i, j) ->np.ndarray:
+    def __cal_dB(self, label, lab_i, i, j):
         updated = 0
         sum_of_dB = 0
 

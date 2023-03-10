@@ -5,7 +5,7 @@ import random as rand
 class SNN:
     def __init__(self) -> None:
         self.model = sequence()
-        self.model.seed = 1234
+        self.model.seed = 1
         self.model.learning_rate = 0.1
         self.model.add(linear(features_in=2, features_out=2))
         self.model.add(relu(features_in=2))
